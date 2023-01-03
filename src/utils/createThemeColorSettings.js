@@ -1,8 +1,10 @@
 const createObject = require('./createObject');
 
 module.exports = (finalColorSet) => {
+  if (!finalColorSet) {
+    throw new Error('No colorset available. Check your config!');
+  }
   const finalThemeColorSettings = {};
-  if (!finalColorSet) return finalThemeColorSettings;
 
   Object.entries(finalColorSet[':root']).forEach((color) => {
     const [a, b] = color;
@@ -10,15 +12,16 @@ module.exports = (finalColorSet) => {
     let colorName = colorKey.split('-')[0] || colorKey;
     let colorLevel = colorKey.split('-')[1] || colorName;
 
+    // Check if whitespaces are present in the color name
     if (/\s/.test(b)) {
       if (colorName === colorLevel) {
         finalThemeColorSettings[colorName] = `rgb(var(${a}) / <alpha-value>)`;
       } else {
         createObject(
-          finalThemeColorSettings,
-          colorName,
-          colorLevel,
-          `rgb(var(${a}) / <alpha-value>)`,
+            finalThemeColorSettings,
+            colorName,
+            colorLevel,
+            `rgb(var(${a}) / <alpha-value>)`,
         );
       }
     } else {

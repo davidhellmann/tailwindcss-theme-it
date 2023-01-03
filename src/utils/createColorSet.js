@@ -1,8 +1,10 @@
-const hexToRGB = require('./hexToRGB');
+const formatColor = require('./formatColor');
 
 module.exports = (options) => {
+  if (!options) {
+    throw new Error('No options available. Check your config!');
+  }
   const finalColorSet = {};
-  if (!options) return finalColorSet;
 
   options.forEach((theme) => {
     const { colors, name } = theme;
@@ -10,13 +12,13 @@ module.exports = (options) => {
 
     Object.entries(colors).forEach((color) => {
       if (typeof color[1] === 'string') {
-        finalColors[`--c-${color[0]}`] = hexToRGB(color[1]);
+        finalColors[`--c-${color[0]}`] = formatColor(color[1]);
       }
 
       if (typeof color[1] === 'object') {
         const colorName = color[0];
         Object.entries(color[1]).forEach((color) => {
-          finalColors[`--c-${colorName}-${color[0]}`] = hexToRGB(color[1]);
+          finalColors[`--c-${colorName}-${color[0]}`] = formatColor(color[1]);
         });
       }
     });
