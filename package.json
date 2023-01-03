@@ -1,5 +1,5 @@
 {
-  "name": "tailwindcss-theming",
+  "name": "tailwindcss-theme-it",
   "version": "1.0.0",
   "description": "Bring color theming to tailwindcss",
   "main": "src/index.js",
@@ -18,13 +18,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidhellmann/tailwindcss-theming.git"
+    "url": "git+https://github.com/davidhellmann/tailwindcss-theme-it.git"
   },
   "author": "David Hellmann",
   "bugs": {
-    "url": "https://github.com/davidhellmann/tailwindcss-theming/issues"
+    "url": "https://github.com/davidhellmann/tailwindcss-theme-it/issues"
   },
-  "homepage": "https://github.com/davidhellmann/tailwindcss-theming#readme",
+  "homepage": "https://github.com/davidhellmann/tailwindcss-theme-it#readme",
   "devDependencies": {
     "tailwindcss": "^3.0.24",
     "tailwindcss-v2": "npm:tailwindcss@^2.2.16"
